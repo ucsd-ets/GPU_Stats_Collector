@@ -1,3 +1,5 @@
 pytest
 prometheus-client
 kubernetes
+requests
+PyYAML
