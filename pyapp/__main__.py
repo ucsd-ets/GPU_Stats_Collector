@@ -10,12 +10,10 @@ if __name__ == '__main__':
     print('creating server')
     start_server()
     print('stared server')
-    node_info = process_request()
-    data_publish(node_info,gpu_metric)
     while True:
         # poll the function to update the resourse information
-        # node_info = process_request()
-        # data_publish(node_info,gpu_metric)
+        node_info = process_request()
+        data_publish(node_info,gpu_metric)
         
         # wait till next polling
         time.sleep(5)
