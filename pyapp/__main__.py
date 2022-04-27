@@ -103,12 +103,16 @@ def data_publish(nodes:Dict,gpu_metric)->None:
         # publish the data for total number of gpu available in the node
         gpu_metric.labels(node.node_label,node.gpu_type,'available', node.course_name).set(node.gpu_total-node.gpu_used if 0<=(node.gpu_total-node.gpu_used) else 0)
 
+
 if __name__ == '__main__':
     # run till infinity 
+    print('created metric')
+    gpu_metric = create_guage()
+    print('creating server')
+    start_server()
+    print('stared server')
     while True:
         # poll the function to update the resourse information
-        gpu_metric = create_guage()
-        start_server()
         node_info = process_request()
         data_publish(node_info,gpu_metric)
         # wait till next polling
