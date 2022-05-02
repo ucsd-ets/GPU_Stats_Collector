@@ -1,3 +1,10 @@
+'''
+Copyright (c) 2022, UC San Diego ITS/Educational Technology Services
+All rights reserved.
+
+This source code is licensed under the BSD-style license found in the
+LICENSE file in the root directory of this source tree. 
+'''
 class Node():
     '''
     class to store the node properties 
