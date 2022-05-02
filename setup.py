@@ -18,8 +18,8 @@ def get_version(rel_path):
     else:
         raise RuntimeError("Unable to find version string.")
 
-setup(name='pyapp',
-      version=get_version('pyapp/__init__.py'),
+setup(name='gpu_stats_collector',
+      version=get_version('gpu_stats_collector/__init__.py'),
       description='',
       author='',
       author_email='',

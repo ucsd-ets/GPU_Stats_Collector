@@ -1,7 +1,7 @@
 import unittest
 import requests
-from pyapp import data_collection
-from pyapp import data_obj
+from gpu_stats_collector import data_collection
+from gpu_stats_collector import data_obj
 
 class TestDatapublish(unittest.TestCase):
     def setUp(self):
@@ -16,10 +16,10 @@ class TestDatapublish(unittest.TestCase):
         # function to be tested
         self.data_publish = data_collection.data_publish
     
-    def test_hello_world(self):
+    def test_data_publish(self):
         # start the server 
         data_collection.start_server(9000)
-        gpu_metric = data_collection.create_guage()
+        gpu_metric = data_collection.create_gauge()
         # create the metric
         self.data_publish(nodes=self.data,gpu_metric=gpu_metric)
         # use http get method to read data

@@ -12,4 +12,4 @@ CMD [ "python3", "-m", "unittest", "discover", "tests", "test_*.py"]
 
 #FROM test AS build
 
-CMD ["python3", "-m", "pyapp"]
+CMD ["python3", "-m", "gpu_stats_collector"]
