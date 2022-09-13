@@ -33,10 +33,9 @@ def combine_node_pod_data(node_data,pod_data)->Dict:
         # iterating over all the nodes
         node = Node()
         # check if the node has gpu from the label if not then move to next node
-        if 'gputype' in obj.metadata.labels:
-            node.gpu_type = obj.metadata.labels['gputype']
-        else:
+        if 'gputype' not in obj.metadata.labels or 'nvidia.com/gpu' not in obj.status.allocatable:
             continue
+        node.gpu_type = obj.metadata.labels['gputype']
         # Extract the node label from the address when type is hostname 
         for address_node in obj.status.addresses: 
             if address_node.type == 'Hostname':
