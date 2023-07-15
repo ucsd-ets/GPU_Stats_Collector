@@ -63,7 +63,7 @@ def combine_node_pod_data(node_data,pod_data)->Dict:
         if obj.spec.containers[0].resources.requests is None:
             continue
         # extract the gpu request of the pod 
-        if 'nvidia.com/gpu' in obj.spec.containers[0].resources.requests:
+        if 'nvidia.com/gpu' in obj.spec.containers[0].resources.requests and obj.status.phase == "Running":
             nodes[node_label].gpu_used += int(obj.spec.containers[0].resources.requests['nvidia.com/gpu'])
     return nodes
 
